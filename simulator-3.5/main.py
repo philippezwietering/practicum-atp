@@ -30,8 +30,9 @@ if __name__ == "__main__":
     lijstje = dir(Controller)
     for l in lijstje:
         x = eval("Controller." + l)
-        print("Controller."+str(x))
-        print(inspect.getdoc(x), "\n")
+        if inspect.isfunction(x):
+            print("Controller."+str(x))
+            print(inspect.getdoc(x), "\n")
 
     #print(simulator)
     simulator.run()
